@@ -5,7 +5,12 @@ import requests
 
 def process_file(file):
     review = {}
-    # open file and process review
+    with open(file) as f:
+        lines = f.readlines()
+        review['title'] = lines[0]
+        review['name'] = lines[1]
+        review['date'] = lines[2]
+        review['feedback'] = lines[3]
     return review
 
 def upload_file(review):
