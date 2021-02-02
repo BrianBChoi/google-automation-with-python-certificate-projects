@@ -8,4 +8,4 @@ The task was to transform and convert a directory of images in the following way
 - Rotate 90 degrees clockwise
 
 #### Module 2 - Processing and Uploading Text Files
-Opened each text file in a directory, added their contents to a dictionary, and uploaded each dictionary to a website using the Python requests module to send a POST request.
+Automated processing and uploading reviews from text files on a machine to a website. Opened each text file in a directory, added their contents to a dictionary, and uploaded each dictionary to a website using the Python requests module to send a POST request.
