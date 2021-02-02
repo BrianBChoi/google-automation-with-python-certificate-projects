@@ -9,7 +9,8 @@ def processFile(file):
     return review
 
 def uploadFile(review):
-    # use requests to make an HTTP POST request with the review dictionary
+    response = requests.post('http://<REPLACE WITH IP>/feedback', json=review)
+    response.raise_for_status()
 
 if __name__ == '__main__':
     for files in os.listdir('data/feedback'):
