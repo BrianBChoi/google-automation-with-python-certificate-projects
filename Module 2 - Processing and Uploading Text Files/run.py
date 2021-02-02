@@ -18,6 +18,7 @@ def upload_file(review):
     response.raise_for_status()
 
 if __name__ == '__main__':
-    for files in os.listdir('data/feedback'):
-        review = process_file(file)
+    files_dir = 'data/feedback'
+    for files in os.listdir(files_dir):
+        review = process_file(files_dir + '/' + file)
         upload_file(review)
