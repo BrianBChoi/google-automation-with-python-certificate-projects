@@ -14,7 +14,7 @@ def process_file(file):
     return review
 
 def upload_file(review):
-    response = requests.post('http://<REPLACE WITH IP>/feedback', json=review)
+    response = requests.post('http://<REPLACE WITH IP>/feedback/', json=review)
     response.raise_for_status()
 
 if __name__ == '__main__':
