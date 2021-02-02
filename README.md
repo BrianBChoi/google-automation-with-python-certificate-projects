@@ -6,3 +6,6 @@ The task was to transform and convert a directory of images in the following way
 - TIFF to JPEG
 - Size 192x192 to 128x128
 - Rotate 90 degrees clockwise
+
+#### Module 2 - Processing and Uploading Text Files
+Opened each text file in a directory, added their contents to a dictionary, and uploaded each dictionary to a website using the Python requests module to send a POST request.
