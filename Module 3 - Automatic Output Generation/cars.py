@@ -3,7 +3,7 @@
 import json
 import locale
 import sys
-
+import reports
 
 def load_data(filename):
   """Loads the contents of filename as a JSON file."""
