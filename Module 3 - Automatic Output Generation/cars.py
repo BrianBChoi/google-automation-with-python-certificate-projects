@@ -73,9 +73,12 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("car_sales.json")
   summary = process_data(data)
-  table_data = cars_dict_to_table(data)
 
-  reports.generate("/tmp/cars.pdf", "Sales summary for last month", summary, table_data)
+  summary_paragraph = ""
+  for line in summary:
+    summary_paragraph += "</br>"
+  table_data = cars_dict_to_table(data)
+  reports.generate("/tmp/cars.pdf", "Sales summary for last month", summary_paragraph, table_data)
 
   sender = "automation@example.com"
   receiver = "{}@example.com".format(os.environ.get('USER'))
