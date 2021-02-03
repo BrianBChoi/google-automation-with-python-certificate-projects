@@ -39,7 +39,7 @@ def process_data(data):
       max_sales = item
 
     year = item["car"]["car_year"]
-    car_year_sales[year] = car_year_sales.get(year, item["total_sales"])
+    car_year_sales[year] = car_year_sales.get(year, 0) + item["total_sales"]
 
   best_car_year = {"sales": 0}
   for car_year, sales in car_year_sales.items():
