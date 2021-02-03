@@ -4,6 +4,7 @@ import json
 import locale
 import sys
 import reports
+import emails
 
 def load_data(filename):
   """Loads the contents of filename as a JSON file."""
