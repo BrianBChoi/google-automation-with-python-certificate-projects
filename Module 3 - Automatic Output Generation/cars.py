@@ -50,7 +50,10 @@ def process_data(data):
   summary = [
     "The {} generated the most revenue: ${}".format(
       format_car(max_revenue["car"]), max_revenue["revenue"]),
-    "The {} had the most sales: {}".format(format_car(max_sales["car"]), max_sales["sales"])
+    "The {} had the most sales: {}".format(
+      format_car(max_sales["car"]), max_sales["sales"]),
+    "The most popular year was {} with {} sales.".format(
+      best_car_year["car_year"], best_car_year["sales"])
   ]
 
   return summary
