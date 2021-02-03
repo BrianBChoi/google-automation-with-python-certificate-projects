@@ -71,4 +71,4 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("car_sales.json")
   summary = process_data(data)
-  print(summary)
+  table_data = cars_dict_to_table(data)
