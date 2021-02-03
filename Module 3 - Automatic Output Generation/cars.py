@@ -72,3 +72,5 @@ def main(argv):
   data = load_data("car_sales.json")
   summary = process_data(data)
   table_data = cars_dict_to_table(data)
+
+  reports.generate("/tmp/cars.pdf", "Sales summary for last month", summary, table_data)
