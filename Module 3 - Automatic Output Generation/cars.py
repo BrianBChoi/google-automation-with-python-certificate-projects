@@ -74,3 +74,12 @@ def main(argv):
   table_data = cars_dict_to_table(data)
 
   reports.generate("/tmp/cars.pdf", "Sales summary for last month", summary, table_data)
+
+  sender = "automation@example.com"
+  receiver = "{}@example.com".format(os.environ.get('USER'))
+  subject = "Sales summary for last month"
+  body = ""
+  for line in summary:
+    body += line + "\n"
+  message = emails.generate(sender, receiver, subject, body, "/tmp/cars.pdf")
+  emails.send(message)
