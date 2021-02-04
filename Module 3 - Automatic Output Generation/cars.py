@@ -6,6 +6,7 @@ import sys
 import os
 import reports
 import emails
+from operator import itemgetter
 
 def load_data(filename):
   """Loads the contents of filename as a JSON file."""
@@ -65,10 +66,12 @@ def process_data(data):
 
 
 def cars_dict_to_table(car_data):
-  """Turns the data in car_data into a list of lists."""
-  table_data = [["ID", "Car", "Price", "Total Sales"]]
+  """Turns the data in car_data into a list of lists, sorted by total sales."""
+  table_data = []
   for item in car_data:
     table_data.append([item["id"], format_car(item["car"]), item["price"], item["total_sales"]])
+  table_data = sorted(table_data, reverse=True, key=itemgetter(3))
+  table_data.insert(0, ["ID", "Car", "Price", "Total Sales"])
   return table_data
 
 
