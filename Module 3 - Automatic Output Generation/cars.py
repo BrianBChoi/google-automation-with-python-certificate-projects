@@ -21,7 +21,9 @@ def format_car(car):
 
 
 def process_data(data):
-  """Analyzes the data, looking for maximums.
+  """Analyzes the data, looking for maximums. Namely, the car with the
+  most revenue, the car with the most sales, and the car year with the
+  most sales.
 
   Returns a list of lines that summarize the information.
   """
@@ -74,11 +76,11 @@ def main(argv):
   """Process the JSON data and generate a full report out of it."""
   data = load_data("car_sales.json")
   summary = process_data(data)
-
   table_data = cars_dict_to_table(data)
   reports.generate("/tmp/cars.pdf", "Sales summary for last month",
     "<br/>".join(summary), table_data)
 
+  # Attach the report to an email and send it
   sender = "automation@example.com"
   receiver = "{}@example.com".format(os.environ.get('USER'))
   subject = "Sales summary for last month"
