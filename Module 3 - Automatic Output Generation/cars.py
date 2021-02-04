@@ -38,6 +38,7 @@ def process_data(data):
       max_revenue = item
 
     if item["total_sales"] > max_sales["sales"]:
+      item["sales"] = item["total_sales"]
       max_sales = item
 
     year = item["car"]["car_year"]
