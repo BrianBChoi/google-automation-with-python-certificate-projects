@@ -86,3 +86,7 @@ def main(argv):
   subject = "Sales summary for last month"
   message = emails.generate(sender, receiver, subject, "\n".join(summary), "/tmp/cars.pdf")
   emails.send(message)
+
+
+if __name__ == "__main__":
+  main(sys.argv)
