@@ -75,17 +75,12 @@ def main(argv):
   data = load_data("car_sales.json")
   summary = process_data(data)
 
-  summary_paragraph = ""
-  for line in summary:
-    summary_paragraph += "</br>"
   table_data = cars_dict_to_table(data)
-  reports.generate("/tmp/cars.pdf", "Sales summary for last month", summary_paragraph, table_data)
+  reports.generate("/tmp/cars.pdf", "Sales summary for last month",
+    "<br/>".join(summary), table_data)
 
   sender = "automation@example.com"
   receiver = "{}@example.com".format(os.environ.get('USER'))
   subject = "Sales summary for last month"
-  body = ""
-  for line in summary:
-    body += line + "\n"
-  message = emails.generate(sender, receiver, subject, body, "/tmp/cars.pdf")
+  message = emails.generate(sender, receiver, subject, "\n".join(summary), "/tmp/cars.pdf")
   emails.send(message)
