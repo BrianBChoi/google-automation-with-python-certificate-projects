@@ -15,11 +15,11 @@ def process_files(files):
       description = {}
       for positon, line in enumerate(text):
         if position == 0:
-          description["name"] = line
+          description["name"] = line.strip("\n")
         if position == 1:
-          description["weight"] = line.strip(" lbs")
+          description["weight"] = line.strip(" lbs\n")
         if position == 2:
-          description["description"] = line
+          description["description"] = line.strip("\n")
     image_name = os.path.splitext(file)[0] + ".jpeg"
     description["image_name"] = image_name
     descriptions.append(description)
