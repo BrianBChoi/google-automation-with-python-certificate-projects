@@ -20,7 +20,8 @@ def process_files(files):
           description["weight"] = line.strip(" lbs")
         if position == 2:
           description["description"] = line
-    description["image_name"] = file.strip(".txt") + ".jpeg"
+    image_name = os.path.splitext(file)[0] + ".jpeg"
+    description["image_name"] = image_name
     descriptions.append(description)
 
   return descriptions
