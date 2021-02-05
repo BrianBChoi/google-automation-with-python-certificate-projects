@@ -21,6 +21,7 @@ def process_images(images):
   for file in images:
     image = Image.open(file)
     new_image = image.resize((600, 400)).convert('RGB')
+    file.strip(".tiff")
     new_image.save(file, 'JPEG')
 
 
