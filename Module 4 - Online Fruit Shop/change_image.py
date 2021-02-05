@@ -6,7 +6,12 @@ import os, sys
 
 def get_images(directory):
   """Given a directory of images, returns a list of their names"""
-  return os.listdir(directory)
+  files = os.listdir(directory)
+  images = []
+  for file in files:
+    if file.endswith(".tiff"):
+      images.append(file)
+  return images
 
 
 def process_images(images):
@@ -16,7 +21,8 @@ def process_images(images):
   for file in images:
     image = Image.open(file)
     new_image = image.resize((600, 400)).convert('RGB')
-    new_image.save(file, 'JPEG')
+    filename = os.path.splitext(file)[0] + '.jpeg'
+    new_image.save(filename)
 
 
 def main(argv):
