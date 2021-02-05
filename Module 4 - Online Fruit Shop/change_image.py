@@ -3,6 +3,7 @@
 from PIL import Image
 import os
 
+
 def get_images(directory):
   """Given a directory of images, returns a list of their names"""
 
@@ -15,7 +16,7 @@ def process_images(images):
 
 def main(argv):
   # get list of files
-  images = get_images(directory)
+  images = get_images("/supplier-data/images")
   # change the images and save them
   process_images(images)
 
