@@ -13,11 +13,16 @@ def process_images(images):
   """Given a list of image file names, changes their size to 600x400 and
   saves each as a JPEG
   """
+  for file in images:
+    image = Image.open(os.path.abspath(file_name))
+    new_image = image.resize((600, 400)).convert('RGB')
+    new_image.save(file, 'JPEG')
 
 
 def main(argv):
   image_dir = argv[1]
   images = get_images(image_dir)
+  os.chdir(image_dir)
   process_images(images)
 
 
