@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-import os
+import os, sys
 from upload_fruit_text import process_files
 from datetime import datetime
 from reportlab.platypus import SimpleDocTemplate
