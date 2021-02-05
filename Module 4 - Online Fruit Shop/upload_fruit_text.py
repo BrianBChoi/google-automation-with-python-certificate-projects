@@ -13,7 +13,7 @@ def process_files(files):
   for file in files:
     with open(file) as text:
       description = {}
-      for positon, line in enumerate(text):
+      for position, line in enumerate(text):
         if position == 0:
           description["name"] = line.strip("\n")
         if position == 1:
