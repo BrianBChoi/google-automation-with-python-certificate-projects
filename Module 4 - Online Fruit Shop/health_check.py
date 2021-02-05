@@ -41,23 +41,15 @@ def main():
   body = "Please check your system and resolve the issue as soon as possible."
   subject = ""
 
-  # check if CPU usage is over 80%
   if check_cpu_usage():
     subject = "Error - CPU usage is over 80%"
-
-  # check if available disk space is lower than 20%
   if check_disk_usage():
     subject = "Error - Available disk space is less than 20%"
-
-  # check if available memory is less than 500MB
   if check_mem_usage():
     subject = "Error - Available memory is less than 500MB"
-
-  # check if hostname "localhost" cannot be resolved to "127.0.0.1"
   if check_localhost():
     subject = "Error - localhost cannot be resolved to 127.0.0.1"
 
-  # if a check fails, email a report
   if subject != "":
     message = generate_basic(sender, recipient, subject, body)
     send(message)
