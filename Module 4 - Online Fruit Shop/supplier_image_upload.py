@@ -5,6 +5,9 @@ import requests
 
 
 def main(argv):
+  """Upload all the files in a given directory to
+  http://localhost/upload/
+  """
   image_dir = argv[1]
   files = os.listdir(image_dir)
   os.chdir(image_dir)
