@@ -29,9 +29,10 @@ def upload_descriptions(descriptions):
   """Given a list of dictionaries, upload it as a JSON object with a
   POST request.
   """
-  response = requests.post(
-    "http://<REPLACE_WITH_IP>/fruits/", json=descriptions)
-  response.raise_for_status()
+  for description in descriptions:
+    response = requests.post(
+      "http://<REPLACE_WITH_IP>/fruits/", json=description)
+    response.raise_for_status()
 
 
 def main(argv):
