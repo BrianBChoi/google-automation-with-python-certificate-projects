@@ -6,6 +6,7 @@ import os
 
 def get_images(directory):
   """Given a directory of images, returns a list of their names"""
+  return os.listdir(directory)
 
 
 def process_images(images):
@@ -15,9 +16,8 @@ def process_images(images):
 
 
 def main(argv):
-  # get list of files
-  images = get_images("/supplier-data/images")
-  # change the images and save them
+  image_dir = argv[1]
+  images = get_images(image_dir)
   process_images(images)
 
 
