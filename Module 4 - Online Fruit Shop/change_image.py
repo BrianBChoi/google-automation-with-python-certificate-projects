@@ -28,7 +28,7 @@ def process_images(images):
 
 def main(argv):
   image_dir = argv[1]
-  images = get_images(image_dir)
+  images = get_images(image_dir, ".tiff")
   os.chdir(image_dir)
   process_images(images)
 
