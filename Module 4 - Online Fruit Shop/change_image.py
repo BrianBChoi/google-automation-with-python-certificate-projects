@@ -10,7 +10,7 @@ def get_images(directory):
   images = []
   for file in files:
     if file.endswith(".tiff"):
-      images.add(file)
+      images.append(file)
   return images
 
 
