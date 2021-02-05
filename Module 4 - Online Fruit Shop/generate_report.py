@@ -3,7 +3,7 @@
 
 import os
 from upload_fruit_text import process_files
-
+from datetime import datetime
 
 def report_text(descriptions):
   report = ""
@@ -22,7 +22,10 @@ def main(argv):
 
   # create report body text with fruit descriptions
   report = report_text(descriptions)
+
   # get date
+  date = datetime.today().strftime('%Y-%m-%d')
+  
   # generate report and save
 
 if __name__ == "__main__":
