@@ -6,7 +6,7 @@ from change_image import get_images
 
 
 def main(argv):
-  """Upload all the files in a given directory to
+  """Upload all JPEG images in a given directory to
   http://localhost/upload/
   """
   image_dir = argv[1]
