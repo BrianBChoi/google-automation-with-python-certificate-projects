@@ -5,7 +5,8 @@ import os, sys
 
 
 def get_images(directory, ext):
-  """Given a directory of images, returns a list of their names"""
+  """Given a directory of images and the desired extension, returns a
+  list of the images with matching extensions"""
   files = os.listdir(directory)
   images = []
   for file in files:
