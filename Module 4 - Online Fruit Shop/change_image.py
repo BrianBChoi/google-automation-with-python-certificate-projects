@@ -4,12 +4,12 @@ from PIL import Image
 import os, sys
 
 
-def get_images(directory):
+def get_images(directory, ext):
   """Given a directory of images, returns a list of their names"""
   files = os.listdir(directory)
   images = []
   for file in files:
-    if file.endswith(".tiff"):
+    if file.endswith(ext):
       images.append(file)
   return images
 
