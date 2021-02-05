@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 
+import email.message
+import smtplib
+from email_report import generate_basic, send
+
 
 if __name__ == "__main__":
   # check if CPU usage is over 80%
