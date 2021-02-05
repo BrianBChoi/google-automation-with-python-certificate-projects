@@ -33,7 +33,7 @@ def send(message):
 
 
 if __name__ == "__main__":
-  # generate email
+  """Generates an email with the PDF report attached."""
   sender = "automation@example.com"
   recipient = "<REPLACE_WITH_USERNAME>@example.com"
   subject = "Upload Completed - Online Fruit Store"
@@ -42,5 +42,4 @@ if __name__ == "__main__":
   attachment = "/tmp/processed.pdf"
   email = generate(sender, recipient, subject, body, attachment)
 
-  # send email
   send(email)
