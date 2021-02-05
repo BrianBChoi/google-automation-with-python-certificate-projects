@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import os
-import shutil, psutil
+import shutil, psutil, socket
 import email.message
 import smtplib
 from email_report import generate_basic, send
@@ -28,8 +28,10 @@ if __name__ == "__main__":
   if mem_mb < 500:
     subject = "Error - Available memory is less than 500MB"
 
-
   # check if hostname "localhost" cannot be resolved to "127.0.0.1"
+  localhost = socket.gethostbyname("localhost")
+  if localhost != "127.0.0.1":
+    subject = "Error - localhost cannot be resolved to 127.0.0.1"
 
   # if a check fails, email a report
   if subject != "":
