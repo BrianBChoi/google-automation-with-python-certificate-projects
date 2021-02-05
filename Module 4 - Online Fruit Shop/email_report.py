@@ -24,6 +24,14 @@ def generate(sender, recipient, subject, body, attachment_path):
 
   return message
 
+
+def send(message):
+  """Sends the message to the configured SMTP server."""
+  mail_server = smtplib.SMTP('localhost')
+  mail_server.send_message(message)
+  mail_server.quit()
+
+
 if __name__ == "__main__":
   # generate email
   sender = "automation@example.com"
@@ -32,6 +40,7 @@ if __name__ == "__main__":
   body = "All fruits are uploaded to our website successfully. "\
          "A detailed list is attached to this email."
   attachment = "/tmp/processed.pdf"
-  generate(sender, recipient, subject, body, attachment)
+  email = generate(sender, recipient, subject, body, attachment)
 
   # send email
+  send(email)
