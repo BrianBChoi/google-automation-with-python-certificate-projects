@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from PIL import Image
-import os
+import os, sys
 
 
 def get_images(directory):
