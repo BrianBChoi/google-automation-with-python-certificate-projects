@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 
+import os
 import requests
 
 
-def process_files(directory):
-  """Given a directory, take each text file and add their contents to
+def process_files(files):
+  """Given a list of files, take each text file and add their contents to
   a dictionary in a list. Return the list of dictionaries.
   """
 
@@ -20,8 +21,9 @@ def upload_descriptions(descriptions):
 
 
 def main(argv):
-  # Process each text file and add to a list of dictionaries
-  descriptions = process_files(directory)
+  directory = argv[1]
+  files = os.listdir(directory)
+  descriptions = process_files(files)
   upload_descriptions(descriptions)
 
 if __name__ == "__main__":
