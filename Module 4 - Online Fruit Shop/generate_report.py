@@ -10,6 +10,9 @@ from reportlab.lib.styles import getSampleStyleSheet
 
 
 def report_text(descriptions):
+  """Isolates the name and weight of each fruit and returns a string that will
+  compose the body of the PDF.
+  """
   report = ""
   for fruit in descriptions:
     report += "name: {}<br/>".format(fruit["name"])
@@ -18,6 +21,8 @@ def report_text(descriptions):
 
 
 def generate(filename, title, body_text):
+  """Given a filename, a title, and the content of the report, generates and
+  saves a PDF file."""
   styles = getSampleStyleSheet()
   report = SimpleDocTemplate(filename)
   report_title = Paragraph(title, styles["h1"])
@@ -27,20 +32,17 @@ def generate(filename, title, body_text):
 
 
 def main(argv):
-  # use process_files from upload_fruit_text.py to get all fruit descriptions
+  """Generates a PDF report of the uploaded fruits that includes the name and
+  weight of each fruit.
+  """
   directory = argv[1]
   files = os.listdir(directory)
   os.chdir(directory)
   descriptions = process_files(files)
 
-  # create report body text with fruit descriptions
   report = report_text(descriptions)
-
-  # get date
   date = datetime.today().strftime('%Y-%m-%d')
   title = "Processed Update on {}".format(date)
-
-  # generate report and save
   generate("/tmp/processed.pdf", title, report)
 
 if __name__ == "__main__":
