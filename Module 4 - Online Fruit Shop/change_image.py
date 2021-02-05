@@ -14,7 +14,7 @@ def process_images(images):
   saves each as a JPEG
   """
   for file in images:
-    image = Image.open(os.path.abspath(file_name))
+    image = Image.open(file)
     new_image = image.resize((600, 400)).convert('RGB')
     new_image.save(file, 'JPEG')
 
