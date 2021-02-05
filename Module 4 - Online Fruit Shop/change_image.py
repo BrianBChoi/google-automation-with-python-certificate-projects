@@ -4,12 +4,13 @@ from PIL import Image
 import os, sys
 
 
-def get_images(directory):
-  """Given a directory of images, returns a list of their names"""
+def get_images(directory, ext):
+  """Given a directory of images and the desired extension, returns a
+  list of the images with matching extensions"""
   files = os.listdir(directory)
   images = []
   for file in files:
-    if file.endswith(".tiff"):
+    if file.endswith(ext):
       images.append(file)
   return images
 
@@ -27,7 +28,7 @@ def process_images(images):
 
 def main(argv):
   image_dir = argv[1]
-  images = get_images(image_dir)
+  images = get_images(image_dir, ".tiff")
   os.chdir(image_dir)
   process_images(images)
 
