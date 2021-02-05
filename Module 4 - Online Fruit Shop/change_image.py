@@ -6,7 +6,12 @@ import os, sys
 
 def get_images(directory):
   """Given a directory of images, returns a list of their names"""
-  return os.listdir(directory)
+  files = os.listdir(directory)
+  images = []
+  for file in files:
+    if file.endswith(".tiff"):
+      images.add(file)
+  return images
 
 
 def process_images(images):
